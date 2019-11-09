@@ -3,6 +3,8 @@ package com.scs.web.blog.dao.impl;
 import com.scs.web.blog.dao.UserDao;
 import com.scs.web.blog.entity.User;
 import com.scs.web.blog.util.DbUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.sql.*;
 import java.util.List;
@@ -15,6 +17,8 @@ import java.util.List;
  * @Version 1.0
  **/
 public class UserDaoImpl implements UserDao {
+    private static Logger logger = LoggerFactory.getLogger(UserDaoImpl.class);
+
     @Override
     public int insert(User user) throws SQLException {
         Connection connection = DbUtil.getConnection();
@@ -30,9 +34,9 @@ public class UserDaoImpl implements UserDao {
     @Override
     public int[] batchInsert(List<User> userList) throws SQLException {
         Connection connection = DbUtil.getConnection();
+        connection.setAutoCommit(false);
         String sql = "INSERT INTO t_user (mobile,password,nickname,avatar,gender,birthday,introduction,create_time) VALUES (?,?,?,?,?,?,?,?) ";
         PreparedStatement pstmt = connection.prepareStatement(sql);
-        connection.setAutoCommit(false);
         userList.forEach(user -> {
             try {
                 pstmt.setString(1, user.getMobile());
@@ -40,6 +44,7 @@ public class UserDaoImpl implements UserDao {
                 pstmt.setString(3, user.getNickname());
                 pstmt.setString(4, user.getAvatar());
                 pstmt.setString(5, user.getGender());
+                //日期的设置，可以使用setObject
                 pstmt.setObject(6, user.getBirthday());
                 pstmt.setString(7, user.getIntroduction());
                 pstmt.setObject(8, user.getCreateTime());
@@ -48,8 +53,8 @@ public class UserDaoImpl implements UserDao {
                 e.printStackTrace();
             }
         });
-        //执行批处理操作
         int[] result = pstmt.executeBatch();
+        //别忘记提交
         connection.commit();
         DbUtil.close(null, pstmt, connection);
         return result;

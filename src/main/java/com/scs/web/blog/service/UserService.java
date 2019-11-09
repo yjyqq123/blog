@@ -15,8 +15,9 @@ import java.util.Map;
 public interface UserService {
     /**
      * 用户登录功能
+     *
      * @param userDto
      * @return
      */
-    Map<String,Object> signIn(UserDto userDto);
+    Map<String, Object> signIn(UserDto userDto);
 }
