@@ -9,7 +9,7 @@ import java.util.Random;
 /**
  * @author mq_xu
  * @ClassName StingUtil
- * @Description TODO
+ * @Description 模拟构造用户数据的工具类
  * @Date 11:30 2019/11/9
  * @Version 1.0
  **/

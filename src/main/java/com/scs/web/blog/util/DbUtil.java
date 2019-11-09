@@ -9,11 +9,12 @@ import java.time.LocalDateTime;
 import java.util.ResourceBundle;
 
 /**
- * 数据库连接工具类
- *
- * @author mqxu
- * @date 2019-11-07
- */
+ * @author mq_xu
+ * @ClassName JSoupSpider
+ * @Description 数据库连接工具类
+ * @Date 9:13 2019/11/7
+ * @Version 1.0
+ **/
 public class DbUtil {
 
     private static String URL;

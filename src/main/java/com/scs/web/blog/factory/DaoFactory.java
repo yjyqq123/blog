@@ -6,7 +6,7 @@ import com.scs.web.blog.dao.impl.UserDaoImpl;
 /**
  * @author mq_xu
  * @ClassName DaoFactory
- * @Description TODO
+ * @Description Dao工厂类
  * @Date 11:39 2019/11/6
  * @Version 1.0
  **/

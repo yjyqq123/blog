@@ -12,7 +12,7 @@ import java.io.IOException;
 /**
  * @author mq_xu
  * @ClassName CharacterFilter
- * @Description 字符集过滤器
+ * @Description 字符集过滤器,过滤请求和响应字符集，统一响应类型
  * @Date 15:56 2019/11/9
  * @Version 1.0
  **/
@@ -21,7 +21,9 @@ public class CharacterFilter implements Filter {
     private static Logger logger = LoggerFactory.getLogger(CharacterFilter.class);
 
     @Override
-    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
+    public void doFilter(ServletRequest servletRequest,
+                         ServletResponse servletResponse,
+                         FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest request = (HttpServletRequest) servletRequest;
         HttpServletResponse response = (HttpServletResponse) servletResponse;
         request.setCharacterEncoding("UTF-8");

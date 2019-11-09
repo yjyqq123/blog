@@ -16,7 +16,7 @@ import java.util.List;
 /**
  * @author mq_xu
  * @ClassName JSoupSpider
- * @Description JSoup实现的一个爬虫工具
+ * @Description JSoup爬虫，抓取数据
  * @Date 9:13 2019/11/7
  * @Version 1.0
  **/

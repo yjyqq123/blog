@@ -5,7 +5,7 @@ import lombok.Data;
 /**
  * @author mq_xu
  * @ClassName ResponseObject
- * @Description 统一的响应对象，采用了单例模式
+ * @Description 统一的响应对象
  * @Date 9:18 2019/10/9
  * @Version 1.0
  **/

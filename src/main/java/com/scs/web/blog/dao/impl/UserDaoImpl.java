@@ -12,7 +12,7 @@ import java.util.List;
 /**
  * @author mq_xu
  * @ClassName UserDaoImpl
- * @Description TODO
+ * @Description UserDao数据访问对象接口实现类
  * @Date 10:54 2019/11/9
  * @Version 1.0
  **/
